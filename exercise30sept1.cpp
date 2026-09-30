@@ -75,7 +75,22 @@ int main() {
         cout << "Data ditemukan:" << endl;
         cout << indeks + 1 << " | " << nim[indeks] << " | " << nama[indeks]
              << " | " << persentaseKehadiran[indeks] << "%" << endl;
+
+        float baru;
+        cout << "\n=== UPDATE DATA ===" << endl;
+        cout << "Persentase kehadiran baru untuk " << nama[indeks] << ": ";
+        cin >> baru;
+        cout << "Sebelum update: " << persentaseKehadiran[indeks] << "%" << endl;
+        persentaseKehadiran[indeks] = baru;
+        cout << "Sesudah update: " << persentaseKehadiran[indeks] << "%" << endl;
     }
+
+    cout << "\n=== DAFTAR MAHASISWA (SETELAH UPDATE) ===" << endl;
+    for (int i = 0; i < jumlah; i++) {
+        cout << i + 1 << " | " << nim[i] << " | " << nama[i]
+             << " | " << persentaseKehadiran[i] << "%" << endl;
+    }
+    cout << "Total Mahasiswa: " << jumlah << endl;
 
     return 0;
 }
