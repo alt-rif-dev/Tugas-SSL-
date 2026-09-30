@@ -63,5 +63,41 @@ int main() {
     }
     cout << "Total Mahasiswa: " << jumlah << endl;
 
+    string cari;
+    cout << "\n=== PENCARIAN BERDASARKAN NIM ===" << endl;
+    cout << "Masukkan NIM: ";
+    cin >> cari;
+
+    int indeks = -1;
+    for (int i = 0; i < jumlah; i++) {
+        if (mahasiswa[i].nim == cari) {
+            indeks = i;
+        }
+    }
+
+    if (indeks == -1) {
+        cout << "Data dengan NIM " << cari << " tidak ditemukan." << endl;
+    } else {
+        cout << "Data ditemukan:" << endl;
+        cout << indeks + 1 << " | " << mahasiswa[indeks].nim << " | "
+             << mahasiswa[indeks].nama << " | "
+             << mahasiswa[indeks].persentaseKehadiran << "%" << endl;
+
+        float baru;
+        cout << "\n=== UPDATE DATA ===" << endl;
+        cout << "Persentase kehadiran baru untuk " << mahasiswa[indeks].nama << ": ";
+        cin >> baru;
+        cout << "Sebelum update: " << mahasiswa[indeks].persentaseKehadiran << "%" << endl;
+        mahasiswa[indeks].persentaseKehadiran = baru;
+        cout << "Sesudah update: " << mahasiswa[indeks].persentaseKehadiran << "%" << endl;
+    }
+
+    cout << "\n=== DAFTAR MAHASISWA (SETELAH UPDATE) ===" << endl;
+    for (int i = 0; i < jumlah; i++) {
+        cout << i + 1 << " | " << mahasiswa[i].nim << " | " << mahasiswa[i].nama
+             << " | " << mahasiswa[i].persentaseKehadiran << "%" << endl;
+    }
+    cout << "Total Mahasiswa: " << jumlah << endl;
+
     return 0;
 }
