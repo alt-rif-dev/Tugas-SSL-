@@ -48,6 +48,34 @@ int main() {
     };
 
     int jumlah = 40;
+    cout << fixed << setprecision(0);
+
+    cout << "=== DAFTAR MAHASISWA ===" << endl;
+    for (int i = 0; i < jumlah; i++) {
+        cout << i + 1 << " | " << nim[i] << " | " << nama[i]
+             << " | " << persentaseKehadiran[i] << "%" << endl;
+    }
+    cout << "Total Mahasiswa: " << jumlah << endl;
+
+    string cari;
+    cout << "\n=== PENCARIAN BERDASARKAN NIM ===" << endl;
+    cout << "Masukkan NIM: ";
+    cin >> cari;
+
+    int indeks = -1;
+    for (int i = 0; i < jumlah; i++) {
+        if (nim[i] == cari) {
+            indeks = i;
+        }
+    }
+
+    if (indeks == -1) {
+        cout << "Data dengan NIM " << cari << " tidak ditemukan." << endl;
+    } else {
+        cout << "Data ditemukan:" << endl;
+        cout << indeks + 1 << " | " << nim[indeks] << " | " << nama[indeks]
+             << " | " << persentaseKehadiran[indeks] << "%" << endl;
+    }
 
     return 0;
 }
